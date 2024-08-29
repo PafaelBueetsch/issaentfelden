@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Dein Friseur in Entfelden</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000; /* Schwarzer Hintergrund */
+            color: #FFD700; /* Gelber Text */
+        }
+        .navbar {
+            background-color: #333;
+        }
+        .navbar-brand, .nav-link {
+            color: #FFD700 !important; /* Gelbe Links und Logo */
+        }
+        .contact {
+            padding: 60px 0;
+        }
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #FFD700;
+            text-align: center;
+        }
+        .form-control {
+            background-color: #333; /* Schwarzer Hintergrund für Eingabefelder */
+            color: #FFD700; /* Gelber Text */
+            border: 1px solid #FFD700;
+        }
+        .form-control::placeholder {
+            color: #FFD700;
+        }
+        .btn-primary {
+            background-color: #FFD700;
+            color: #000;
+            border: none;
+        }
+        .preview {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #333;
+            color: #FFD700;
+            border: 1px solid #FFD700;
+            border-radius: 5px;
+            min-height: 150px;
+        }
+        .success-message {
+            margin-top: 20px;
+            color: #00FF00;
+        }
+        .footer {
+            background-color: #333;
+            color: #FFD700;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">Dein Friseur in Entfelden</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                <li class="nav-item"><a class="nav-link" href="preisliste.html">Preisliste</a></li>
+                <li class="nav-item"><a class="nav-link" href="dienstleistungen.html">Dienstleistungen</a></li>
+                <li class="nav-item"><a class="nav-link" href="ueber-uns.html">Über uns</a></li>
+                <li class="nav-item"><a class="nav-link" href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Kontakt Section -->
+    <section class="contact container">
+        <h2>Kontaktieren Sie uns</h2>
+        <form id="contact-form">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Max Mustermann" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="max@mustermann.de" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="subject">Betreff</label>
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Betreff der Nachricht" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Nachricht</label>
+                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Ihre Nachricht..." required oninput="updatePreview()"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Senden</button>
+        </form>
+
+        <!-- Live-Vorschau der Nachricht -->
+        <div class="preview" id="messagePreview">
+            <h4>Live-Vorschau Ihrer Nachricht:</h4>
+            <p id="previewText">Ihre Nachricht wird hier angezeigt...</p>
+        </div>
+
+        <!-- Erfolgsmeldung -->
+        <div class="success-message" id="successMessage" style="display: none;">
+            <h4>Danke! Ihre Nachricht wurde erfolgreich gesendet.</h4>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Dein Friseur in Entfelden - Alle Rechte vorbehalten</p>
+    </footer>
+
+    <!-- JavaScript für Live-Vorschau und AJAX -->
+    <script>
+        function updatePreview() {
+            var message = document.getElementById("message").value;
+            var preview = document.getElementById("previewText");
+            preview.textContent = message ? message : "Ihre Nachricht wird hier angezeigt...";
+        }
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Verhindert das Standardformular-Absenden
+
+            var formData = new FormData(this);
+
+            fetch('https://formspree.io/f/xblrwpyz', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(function(response) {
+                if (response.ok) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('contact-form').reset();
+                    updatePreview(); // Vorschau zurücksetzen
+                } else {
+                    alert('Es gab ein Problem beim Senden Ihrer Nachricht.');
+                }
+            }).catch(function(error) {
+                alert('Es gab ein Problem beim Senden Ihrer Nachricht.');
+            });
+        });
+    </script>
+</body>
+</html>

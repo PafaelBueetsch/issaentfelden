@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friseursalon - Dein Friseur</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000; /* Schwarzer Hintergrund */
+            color: #FFD700; /* Gelber Text */
+        }
+        .navbar {
+            background-color: #333;
+        }
+        .navbar-brand, .nav-link {
+            color: #FFD700 !important; /* Gelbe Links und Logo */
+        }
+        .hero {
+            background-image: url('images/hero-bild.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #FFD700; /* Gelber Text */
+            padding: 200px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .btn-hero {
+            font-size: 1.25rem;
+            padding: 10px 30px;
+            background-color: #FFD700; /* Gelber Button */
+            color: #000; /* Schwarzer Text */
+            border: none;
+        }
+        .services, .about {
+            padding: 60px 0;
+        }
+        .services h2, .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #FFD700;
+        }
+        .services img, .about img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        .cta {
+            background-color: #FFD700;
+            color: #000;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .footer {
+            background-color: #333;
+            color: #FFD700;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">Dein Friseur</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                <li class="nav-item"><a class="nav-link" href="preisliste.html">Preisliste</a></li>
+                <li class="nav-item"><a class="nav-link" href="dienstleistungen.html">Dienstleistungen</a></li>
+                <li class="nav-item"><a class="nav-link" href="ueber-uns.html">Über uns</a></li>
+                <li class="nav-item"><a class="nav-link" href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Erleben Sie den perfekten Haarschnitt</h1>
+        <p>Stilvolle Haarschnitte und kreative Stylings für jede Gelegenheit.</p>
+        <a href="kontakt.html" class="btn btn-hero">Jetzt Termin vereinbaren</a>
+    </div>
+
+    <!-- Dienstleistungen Section -->
+    <section class="services container text-center">
+        <h2>Unsere Dienstleistungen</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="images/haarschnitt.jpg" alt="Haarschnitt" class="img-fluid">
+                <h4>Haarschnitt</h4>
+                <p>Klassische und moderne Haarschnitte für Damen und Herren.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="images/faerben.jpg" alt="Färben" class="img-fluid">
+                <h4>Färben</h4>
+                <p>Professionelle Farbberatung und Coloration.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="images/styling.jpg" alt="Styling" class="img-fluid">
+                <h4>Styling</h4>
+                <p>Perfektes Styling für jeden Anlass.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Über uns Section -->
+    <section class="about text-center container">
+        <h2>Über uns</h2>
+        <p>Unser Salon besteht aus einem Team von erfahrenen Friseuren, die sich darauf spezialisiert haben, Ihnen das beste Styling-Erlebnis zu bieten. Wir arbeiten mit Leidenschaft und Präzision, um Ihre Wünsche zu erfüllen und Sie mit einem Lächeln zu verabschieden.</p>
+        <img src="images/team-bild.jpg" alt="Unser Team" class="img-fluid">
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <h2>Besuchen Sie uns noch heute!</h2>
+        <p>Wir freuen uns darauf, Sie in unserem Salon willkommen zu heißen.</p>
+        <a href="kontakt.html" class="btn btn-light">Kontaktieren Sie uns</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Dein Friseur - Alle Rechte vorbehalten</p>
+    </footer>
+
+</body>
+</html>
